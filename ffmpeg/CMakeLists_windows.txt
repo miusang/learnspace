@@ -1,0 +1,25 @@
+# cmake_minimum_required(VERSION 3.23)
+# project(test)
+# set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# add_executable(test main.c)
+# target_link_libraries(test avutil avcodec avformat swscale SDL2 SDL2main)
+
+# cmake in windows
+cmake_minimum_required(VERSION 3.23)
+
+project(test)
+
+include_directories(D:\\ffmpeg-5.0.1-full_build-shared\\include
+D:\\SDL2-2.0.22\\x86_64-w64-mingw32\\include)
+
+link_directories(D:\\ffmpeg-5.0.1-full_build-shared\\lib
+D:\\SDL2-2.0.22\\x86_64-w64-mingw32\\lib
+D:\\SDL2-2.0.22\\x86_64-w64-mingw32\\bin)
+
+link_libraries(libavutil.dll.a libavcodec.dll.a libavformat.dll.a 
+    libswscale.dll.a libswresample.dll.a
+    libmingw32.a libSDL2main.a libSDL2.a libSDL2.dll.a 
+    Imm32.lib Version.lib SetupAPI.lib Winmm.lib)
+
+add_executable(test test_video_audio.c)
